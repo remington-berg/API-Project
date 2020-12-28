@@ -1,20 +1,20 @@
 <template>
   <div class="home">
-    <div>
-      <h1>Jose Was Here!!!</h1>
-    </div>
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Hiya its Arthur" />
+    <h1>{{ message }}</h1>
   </div>
 </template>
 
-<script>
-import HelloWorld from "@/components/HelloWorld.vue";
+<style>
+</style>
 
+<script>
 export default {
-  name: "Home",
-  components: {
-    HelloWorld,
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!"
+    };
   },
+  created: function() {},
+  methods: {}
 };
 </script>
