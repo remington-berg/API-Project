@@ -2,7 +2,9 @@
   <div class="home">
     <div v-for="student in students">
       <h1>{{ student.first_name }} {{student.last_name }}</h1>
+      <router-link v-bind:to="`/student/${student.id}`">
       <img v-bind:src="`${student.photo_url}`" v-bind:alt="`${student.last_name}`">
+      </router-link>
       <p>{{ student.skills[0].skill_name }}</p>
     </div>
   </div>
