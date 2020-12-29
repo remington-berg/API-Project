@@ -1,4 +1,43 @@
 <template>
+  <div class="student-show">
+    <h1>{{ student.first_name }} {{ student.last_name }}</h1>
+    <img v-bind:src="`${student.photo_url}`" alt="" />
+    <!-- <h2>{{ student.experiences[0] }}</h2> -->
+    <h3>Contact Information</h3>
+    <p>
+      <strong>Email:</strong>
+      {{ student.email }} |
+      <strong>phone number:</strong>
+      {{ student.phone_number }} |
+      <strong>bio:</strong>
+      {{ student.short_bio }}
+    </p>
+    <strong>linkedIn:</strong>
+    {{ student.linkedin_url }}
+    <strong>Twitter:</strong>
+    {{ student.twitter_handle }} |
+    <strong>Website:</strong>
+    {{ student.personal_website }} |
+    <strong>Resume:</strong>
+    {{ student.online_resume_url }} |
+    <strong>Resume:</strong>
+    {{ student.online_resume_url }} |
+    <strong>Github:</strong>
+    {{ student.github_url }}
+    <br />
+    <h3>Experiences</h3>
+    <div v-for="experience in student.experiences">
+      <p>{{ experience.start_date }} - {{ experience.end_date }}</p>
+      <p>
+        <strong>job title:</strong>
+        {{ experience.job_title }} @ {{ experience.company_name }}
+      </p>
+      <p>
+        <strong>details:</strong>
+        {{ experience.details }}
+      </p>
+    </div>
+
   <div class=“student-show”>
     <h1>{{ student.first_name }}{{ student.last_name }}</h1>
     <h2>{{ student.experiences[0].job_title }}</h2>
@@ -65,7 +104,8 @@ export default {
              student_id: 1,
              start_date: "12/8/2016",
              end_date: "12/8/2020",
-             degree: "Computer Science",              university_name: "MIT",
+             degree: "Computer Science",             
+             university_name: "MIT",
              details: "bob is smart"
            },
          ],
@@ -90,9 +130,6 @@ export default {
     };
   },
   methods: {
-    capstoneSite: function(capstone) {
-      window.location = capstone.url;
-    }
   }
 };
 </script>
