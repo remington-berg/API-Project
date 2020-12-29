@@ -43,7 +43,7 @@
     <div v-for="school in student.education">
       <h3>{{ school.university_name }}</h3>
       <h5>{{ school.degree }}</h5>
-      <h6>From: {{school.start_date}} To: {{ school.end_date }}</h6>
+      <h6>From: {{ school.start_date }} To: {{ school.end_date }}</h6>
       <p>{{ school.details }}</p>
     </div>
     <h2>Skills</h2>
@@ -53,9 +53,9 @@
     <h2>Capstones</h2>
     <div v-for="capstone in student.capstones">
       <h3>{{ capstone.name }}</h3>
-      <img v-bind:src="`${capstone.screenshot_url}`" v-bind:alt="`${capstone.name}`">
-      <h4>{{ capstone.url }}</h4>
+      <img v-bind:src="`${capstone.screenshot_url}`" v-bind:alt="`${capstone.name}`" />
       <h4>{{ capstone.description }}</h4>
+      <router-link to="/">Back to all students</router-link>
     </div>
     <a class="twitter-timeline" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a>
     <router-link to="/">Back to all students</router-link>
@@ -64,70 +64,26 @@
 
 
 <style>
-  img {
-    height: 250px;
-  }
+img {
+  height: 250px;
+}
 </style>
 
 <script>
+import axios from "axios";
+
 export default {
   data: function() {
     return {
-      student:
-       {
-         id: 1,
-         first_name: "bob",
-         last_name: "smith",
-         email: "b@example.com",
-         password_digest: "aslkjdfaslkdjfh",
-         phone_number: "555-555-5555",
-         short_bio: "a;sdf;lasdjhnklajsdhg;salc",
-         linkedin_url: "linkedin.com",
-         twitter_handle: "@xyz",
-         personal_website: "bob.com",
-         online_resume_url: "bob.com/resume",
-         github_url: "github.com/bob",
-         photo_url: "https://i.imgur.com/SbijEKc.jpg",
-         experiences: [
-           {
-             id: 1,
-             student_id: 1,
-             start_date: "12/8/2020",
-             end_date: "present",
-             job_title: "Web Developer",
-             company_name: "Google",
-             details: "Google Web Developer"
-           },
-         ],
-         education: [
-           {
-             id: 1,
-             student_id: 1,
-             start_date: "12/8/2016",
-             end_date: "12/8/2020",
-             degree: "Computer Science",              university_name: "MIT",
-             details: "bob is smart"
-           },
-         ],
-         skills: [
-           {
-             id: 1,
-             student_id: 1,
-             skill_name: "smithing",
-           }
-         ],
-         capstones: [
-           {
-             id: 1,
-             student_id: 1,
-             name: "WebSmithing",
-             description: "Website about smithing",
-             url: "websmithing.com",
-             screenshot_url: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Kov%C3%A1%C5%99_p%C5%99i_pr%C3%A1ci_%28Velikono%C4%8Dn%C3%AD_trhy_na_V%C3%A1clavsk%C3%A9m_n%C3%A1m%C4%9Bst%C3%AD%29_055.jpg"
-           },
-         ],
-       },
+      student: {},
     };
-  }
+  },
+  created: function() {
+    axios.get("/api/students/" + this.$route.params.id).then(response => {
+      console.log("student show", response);
+      this.student = response.data;
+    });
+  },
+  methods: {},
 };
 </script>
