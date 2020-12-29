@@ -38,7 +38,7 @@
       </p>
     </div>
 
-  <div class=“student-show”>
+  
     <h1>{{ student.first_name }}{{ student.last_name }}</h1>
     <h2>{{ student.experiences[0].job_title }}</h2>
     <h2>Education</h2>
@@ -104,8 +104,7 @@ export default {
              student_id: 1,
              start_date: "12/8/2016",
              end_date: "12/8/2020",
-             degree: "Computer Science",             
-             university_name: "MIT",
+             degree: "Computer Science",              university_name: "MIT",
              details: "bob is smart"
            },
          ],
@@ -128,8 +127,6 @@ export default {
          ],
        },
     };
-  },
-  methods: {
   }
 };
 </script>
