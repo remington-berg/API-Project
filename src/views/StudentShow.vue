@@ -99,7 +99,7 @@ export default {
              student_id: 1,
              start_date: "12/8/2016",
              end_date: "12/8/2020",
-             degree: "Computer Science",             
+             degree: "Computer Science",              
              university_name: "MIT",
              details: "bob is smart"
            },
@@ -123,8 +123,6 @@ export default {
          ],
        },
     };
-  },
-  methods: {
   }
 };
 </script>
