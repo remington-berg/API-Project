@@ -37,8 +37,6 @@
         {{ experience.details }}
       </p>
     </div>
-    <h1>{{ student.first_name }}{{ student.last_name }}</h1>
-    <h2>{{ student.experiences[0].job_title }}</h2>
     <h2>Education</h2>
     <div v-for="school in student.education">
       <h3>{{ school.university_name }}</h3>
@@ -47,9 +45,9 @@
       <p>{{ school.details }}</p>
     </div>
     <h2>Skills</h2>
-    <div v-for="skill in student.skills">
-      <h3>{{ skill.skill_name }}</h3>
-    </div>
+    <ul v-for="skill in student.skills">
+      <li>{{ skill.skill_name }}</li>
+    </ul>
     <h2>Capstones</h2>
     <div v-for="capstone in student.capstones">
       <h3>{{ capstone.name }}</h3>
@@ -57,7 +55,6 @@
       <h4>{{ capstone.description }}</h4>
       <router-link to="/">Back to all students</router-link>
     </div>
-    <a class="twitter-timeline" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a>
     <router-link to="/">Back to all students</router-link>
   </div>
 </template>
@@ -66,6 +63,10 @@
 <style>
 img {
   height: 250px;
+}
+
+.home {
+  padding-left: 2em;
 }
 </style>
 
