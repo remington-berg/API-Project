@@ -3,7 +3,7 @@
     <h1>{{ student.first_name }}{{ student.last_name }}</h1>
     <h2>{{ student.experiences[0] }}</h2>
 
-    <router-link to=“/students”>Back to all students</router-link>
+    <router-link to="/">Back to all students</router-link>
   </div>
 </template>
 
