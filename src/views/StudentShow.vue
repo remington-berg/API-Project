@@ -37,10 +37,6 @@
         {{ experience.details }}
       </p>
     </div>
-
-  <div class=“student-show”>
-    <h1>{{ student.first_name }}{{ student.last_name }}</h1>
-    <h2>{{ student.experiences[0].job_title }}</h2>
     <h2>Education</h2>
     <div v-for="school in student.education">
       <h3>{{ school.university_name }}</h3>
@@ -57,7 +53,6 @@
       <h3>{{ capstone.name }}</h3>
         <img v-bind:src="`${capstone.screenshot_url}`" v-bind:alt="`${capstone.name}`">
       <h4>{{ capstone.description }}</h4>
-    </div>
     <router-link to="/">Back to all students</router-link>
   </div>
 </template>
