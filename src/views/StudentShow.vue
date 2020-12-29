@@ -45,9 +45,9 @@
       <p>{{ school.details }}</p>
     </div>
     <h2>Skills</h2>
-    <div v-for="skill in student.skills">
-      <h3>{{ skill.skill_name }}</h3>
-    </div>
+    <ul v-for="skill in student.skills">
+      <li>{{ skill.skill_name }}</li>
+    </ul>
     <h2>Capstones</h2>
     <div v-for="capstone in student.capstones">
       <h3>{{ capstone.name }}</h3>
@@ -55,12 +55,18 @@
       <h4>{{ capstone.description }}</h4>
       <router-link to="/">Back to all students</router-link>
     </div>
+    <router-link to="/">Back to all students</router-link>
   </div>
 </template>
+
 
 <style>
 img {
   height: 250px;
+}
+
+.home {
+  padding-left: 2em;
 }
 </style>
 
